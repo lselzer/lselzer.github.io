@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+  {% include head.html %}
+
+  <body>
+
+    {% include header.html %}
+
+    <div class="page-content">
+      <div class="wrapper">
+        {{ content }}
+      </div>
+    </div>
+
+    {% if page.title == "Search" %}
+      <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+      <script src="{{ "/js/lunr.min.js" | prepend: site.baseurl }}"></script>
+      <script src="{{ "/js/lunr-feed.js" | prepend: site.baseurl }}"></script>
+    {% endif %}
+
+  </body>
+
+</html>

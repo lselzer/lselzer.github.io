@@ -1,0 +1,23 @@
+---
+layout: post
+title: "Use htmlwidgets with Jekyll, 3"
+author: "Vasilios Zachariadis"
+date: "1 March 2016"
+---
+
+## Using htmlwidgets within Rmd and Jekyll
+
+```{r}
+library(DT)
+datatable(airquality, options = list(pageLength = 5))
+datatable(iris, options = list(pageLength = 5))
+```
+
+```{r}
+library(magrittr)
+library(highcharter)
+highchart() %>% 
+  hc_title(text = "Scatter chart with size and color") %>% 
+  hc_add_serie_scatter(mtcars$wt, mtcars$mpg,
+                       mtcars$drat, mtcars$hp)
+```
