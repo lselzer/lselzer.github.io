@@ -11,9 +11,9 @@ How I use it:
 * Git push (from whithin RStudio) now becomes deploy
 
 Based on:
-* knitr-jekyll by yihui, with addin of htmlwidgets support (borrowed from https://brendanrocks.com/htmlwidgets-knitr-jekyll/)
-* Full-text search with lunr.js (solution borrowed from https://github.com/katydecorah/katydecorah.github.io)
-* Archive timeline styling from https://github.com/katydecorah/katydecorah.github.io
+* [knitr-jekyll by yihui](https://github.com/yihui/knitr-jekyll), with addin of htmlwidgets support (borrowed from [brendan-r](https://github.com/brendan-r/knitr-jekyll))
+* Full-text search with lunr.js (solution borrowed from [katydecorah](https://github.com/katydecorah/katydecorah.github.io))
+* Archive timeline styling borrowed from [katydecorah](https://github.com/katydecorah/katydecorah.github.io)
 
 Requirements:
 * [Jekyll 3.x](http://jekyllrb.com)
