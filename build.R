@@ -25,5 +25,5 @@ local({
 
   knitr::opts_knit$set(width = 70)
   knitr::knit(a[1], a[2], quiet = TRUE, encoding = 'UTF-8', envir = .GlobalEnv)
-  htmlwidgets_deps(a)
+  brocks::htmlwidgets_deps(a)
 })

@@ -19,6 +19,7 @@ Requirements:
 * [Jekyll 3.x](http://jekyllrb.com)
 * [jekyll-scholar](https://github.com/inukshuk/jekyll-scholar)
 * [jekyll_file_exists](https://github.com/michaelx/jekyll_file_exists) (included in this repo)
+* [brocks](https://github.com/brendan-r/brocks) (in R, `devtools::install_github("brendan-r/brocks")`)
 
 Note: if hosting on Github pages, you will have to build the site locally first since the jekyll plugins are not allowed.
 
