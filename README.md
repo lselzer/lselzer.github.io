@@ -10,19 +10,23 @@ How I use it:
 * Use Git with a post-receive hook for building and deploying the Jekyll site remotely
 * Git push (from whithin RStudio) now becomes deploy
 
-Based on:
-* [knitr-jekyll by yihui](https://github.com/yihui/knitr-jekyll), with addin of htmlwidgets support (borrowed from [brendan-r](https://github.com/brendan-r/knitr-jekyll))
+Based on/Credit to:
+* [knitr-jekyll by yihui](https://github.com/yihui/knitr-jekyll)
+* [htmlwidgets support from brendan-r](https://github.com/brendan-r/knitr-jekyll)
 * Full-text search with lunr.js (solution borrowed from [katydecorah](https://github.com/katydecorah/katydecorah.github.io))
 * Archive timeline styling borrowed from [katydecorah](https://github.com/katydecorah/katydecorah.github.io)
 
 Requirements:
 * [Jekyll 3.x](http://jekyllrb.com)
+* [brocks](https://github.com/brendan-r/brocks) (in R, `devtools::install_github("brendan-r/brocks")`)
 * [jekyll-scholar](https://github.com/inukshuk/jekyll-scholar)
 * [jekyll_file_exists](https://github.com/michaelx/jekyll_file_exists) (included in this repo)
-* [brocks](https://github.com/brendan-r/brocks) (in R, `devtools::install_github("brendan-r/brocks")`)
 
 Note: if hosting on Github pages, you will have to build the site locally first since the jekyll plugins are not allowed.
 
 ### Screenshots
 
 ![](screens/screen_2016-03-01_22-46-37.png)
+
+### License 
+GPL-3, since it includes code from RStudio through the [brendan-r/brocks](https://github.com/brendan-r/brocks) package
