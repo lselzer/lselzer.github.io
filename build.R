@@ -1,5 +1,6 @@
 local({
-  source("global.R")
+  # Check if required brocks package is installed
+  if(!is.element("brocks", installed.packages()[,1])) stop("Package 'brocks' is required.\nPlease install with devtools::install_github('brendan-r/brocks') and try again.")
   # fall back on '/' if baseurl is not specified
   baseurl = servr:::jekyll_config('.', 'baseurl', '/')
   knitr::opts_knit$set(base.url = baseurl)

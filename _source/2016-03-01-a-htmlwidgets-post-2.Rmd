@@ -5,7 +5,7 @@ author: "Vasilios Zachariadis"
 date: "1 March 2016"
 ---
 
-## Using htmlwidgets within Rmd and Jekyll
+## Using htmlwidgets within Rmd and Jekyll (fixed)
 
 ```{r}
 library(DT)
