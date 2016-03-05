@@ -27,6 +27,7 @@ Note: if hosting on Github pages, you will have to build the site locally first 
 ### Screenshots
 
 ![](screens/screen_2016-03-01_22-46-37.png)
+![](screens/screen_2016-03-05_13-09-19.png)
 
 ### License 
 [MIT](LICENSE.md)
