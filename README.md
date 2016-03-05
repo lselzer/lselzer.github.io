@@ -29,4 +29,4 @@ Note: if hosting on Github pages, you will have to build the site locally first 
 ![](screens/screen_2016-03-01_22-46-37.png)
 
 ### License 
-[GPL-3](LICENSE.md), since it includes code from RStudio through the [brendan-r/brocks](https://github.com/brendan-r/brocks) package
+[MIT](LICENSE.md)
