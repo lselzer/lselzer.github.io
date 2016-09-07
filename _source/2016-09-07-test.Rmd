@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "Use htmlwidgets with Jekyll, 3"
-author: "Vasilios Zachariadis"
-date: "1 March 2016"
+title: "test"
+author: "Luciano Selzer"
+date: "07 September 2016"
 ---
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
