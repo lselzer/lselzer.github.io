@@ -87,7 +87,7 @@ google_analytics: "700718"
 timezone: "America/Argentina/Ushuaia"
 markdown: kramdown
 highlighter: rouge
-#permalink: /:year-:month-:day-:title/
+permalink: /:year-:month-:day-:title/
 paginate: 5
 
 kramdown:
