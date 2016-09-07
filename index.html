@@ -18,7 +18,11 @@ subtitle: Acá es donde van todas las cosas relacionados con R y diversos proyec
     </a>
 
     <p class="post-meta">
-      Posted on {{ post.date | date: "%B %-d, %Y" }}
+      <!-- http://stackoverflow.com/questions/10714980/locale-specific-date-in-jekyll -->
+      Publicado el {{ post.date | date: "%-d" }} de 
+{% assign m = post.date | date: "%-m" | minus: 1 %}
+{{ site.data.meses.months[m] }} de 
+{{ post.date | date: "%Y" }}
     </p>
 
     <div class="post-entry">
@@ -47,12 +51,12 @@ subtitle: Acá es donde van todas las cosas relacionados con R y diversos proyec
 <ul class="pager main-pager">
   {% if paginator.previous_page %}
   <li class="previous">
-    <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&larr; Newer Posts</a>
+    <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&larr; Publicaciones Nuevas</a>
   </li>
   {% endif %}
   {% if paginator.next_page %}
   <li class="next">
-    <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Older Posts &rarr;</a>
+    <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Publicaciones Viejas &rarr;</a>
   </li>
   {% endif %}
 </ul>
