@@ -110,6 +110,13 @@ defaults:
     values:
       layout: "page"
       show-avatar: true
+  # Only use blank layout in js folder to get lunr working
+  -
+    scope:
+      path: "js"
+    values:
+      layout: "blank"
+      show-avatar: true
 
 # Use tags pages (not recommended if you are deploying via GitHub pages, only set to true if deploying locally with ruby)
 link-tags: false
