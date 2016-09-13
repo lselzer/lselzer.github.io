@@ -38,7 +38,7 @@ $(document).ready(function() {
     // Show results
     resultdiv.empty();
     // Add status
-    resultdiv.prepend('<p class="">Found '+result.length+' result(s)</p>');
+    resultdiv.prepend('<p class="">Encontrados '+result.length+' resultado(s)</p>');
     // Loop through, match, and add results
     for (var item in result) {
       var ref = result[item].ref;

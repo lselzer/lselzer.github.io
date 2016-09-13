@@ -20,20 +20,20 @@ common-js:
   {% include head.html %}
 
   <body>
-  
+
     {% include nav.html %}
-    
-    {% if page.title == "Search" %}
+
+    {% if page.title == "Búsqueda" %}
       <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
       <script src="{{ "/js/lunr.min.js" | prepend: site.baseurl }}"></script>
       <script src="{{ "/js/lunr-feed.js" | prepend: site.baseurl }}"></script>
     {% endif %}
-    
+
     {{ content }}
 
     {% include footer.html %}
-  
+
     {% include footer-scripts.html %}
-  
+
   </body>
 </html>
