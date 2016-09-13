@@ -24,7 +24,13 @@ local({
     base.url = paste(baseurl,"/",sep="")
   )
 
-  knitr::opts_knit$set(width = 70)
+  knitr::opts_knit$set(width = 80)
+  if (!file.exists(a[2]) |
+      file.info(a[1])$mtime > file.info(a[2])$mtime) {
+  message(paste0("Knitting file: ", a[1], " into: ", a[2],"\n"))
   knitr::knit(a[1], a[2], quiet = TRUE, encoding = 'UTF-8', envir = .GlobalEnv)
+  message("Building deps \n")
   brocks::htmlwidgets_deps(a)
+  message("Building deps \n")
+  }
 })
