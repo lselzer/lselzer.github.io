@@ -3,7 +3,7 @@ title: "Accediendo a datos.gob.ar desde R"
 author: "Luciano Selzer"
 date: "`r format(Sys.time(), '%d %B, %Y')`"
 layout: post
-html_widgets: true
+htmlwidgets: true
 ---
 
 ```{r setup, include=FALSE}
@@ -104,8 +104,9 @@ hay que tener una clave.
 Con organization_list() podemos ver todas instituciones del gobierno que hay
 provistos datos y otra información como cuantos datos y el número de usuarios.
 
-```{r table, echo=FALSE}
-organization_list(as = "table")[, c(1, 4)]
+```{r table, echo=FALSE, message=FALSE}
+library(DT)
+datatable(organization_list(as = "table")[, c(1, 4)])
 
 ```
 
@@ -163,6 +164,7 @@ library("ggplot2")
 library("scales")
 library("ggthemes")
 library("plotly")
+library("tidyr")
 if (!dir.exists("data")) dir.create("data")
 URL <- csv$url[str_detect(csv$url, "presupuesto")]
 fil <- paste0("data/", basename(URL)) 
@@ -182,20 +184,28 @@ jugo. Toda la información sobre los campos del archivo la pueden encontrar
 Dejo algunos gráficos a modo de ejemplo.
 
 
-```{r, warning=FALSE, fig.height=10, echo = FALSE, message=FALSE}
+```{r, warning=FALSE, fig.height=10, fig.width=10, echo = FALSE, message=FALSE}
 presupuesto_2016 %>% 
   group_by(jurisdiccion_desc) %>% 
-  summarise_at(vars(starts_with("monto")), funs(sum))  ->
+  summarise_at(vars(starts_with("monto")), funs(sum))  %>% 
+  gather(tipo_monto, value = valor, starts_with("monto")) ->
   presupuesto_2016_by_jurisdiccion
 
-presupuesto_2016_plot  <- ggplot(presupuesto_2016_by_jurisdiccion,
-                                 aes(jurisdiccion_desc, monto_presupuestado)) +
-    geom_bar(stat = "identity", fill = "#FF4040") +
-    geom_bar(stat = "identity", aes(y = monto_pagado), fill = "#00BFFF") +
+presupuesto_2016_plot  <- ggplot(
+  filter(presupuesto_2016_by_jurisdiccion,
+         tipo_monto %in% c("monto_presupuestado", "monto_pagado")), 
+         aes(jurisdiccion_desc, valor, fill = tipo_monto)) +
+    geom_bar(stat = "identity", position = "identity") +
     scale_x_discrete("Jurisdicción", 
-                     labels = str_trunc(presupuesto_2016_by_jurisdiccion$jurisdiccion_desc, 30, "r")) + 
-    scale_y_continuous("Monto presupuestado (en millones)", labels = dollar_format(big.mark = ".", decimal.mark = ",")) +
-    theme_foundation() +
+                     labels =
+                       str_trunc(presupuesto_2016_by_jurisdiccion$jurisdiccion_desc,
+                                 30, "r")) + 
+    scale_y_continuous("Monto presupuestado (en millones)", 
+                       labels = dollar_format(big.mark = ".", decimal.mark = ",")) +  
+  scale_fill_discrete(name = "Montos", 
+                 breaks = c("monto_pagado", "monto_presupuestado"),
+                 labels = c("Pagado", "Presupuestado")) +
+    theme_few() +
     theme(axis.text.x = element_text(angle = 90, hjust = 1))
 ggplotly(presupuesto_2016_plot)
   
